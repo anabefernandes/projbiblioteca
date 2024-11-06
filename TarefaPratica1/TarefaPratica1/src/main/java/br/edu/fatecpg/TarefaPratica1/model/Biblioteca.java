@@ -31,6 +31,6 @@ public class Biblioteca {
     }
 
     public List<Livro> disponibilidade() {
-        return repositorio.findByDisponibilidadeTrue();
+        return repositorio.buscarLivrosDisponiveis();
     }
 }
