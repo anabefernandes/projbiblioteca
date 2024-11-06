@@ -11,7 +11,8 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 
     List<Livro> findByAutorContainingIgnoreCase(String autorLivro);
 
-    List<Livro> findByDisponibilidadeTrue();
+    @Query(value = "SELECT * FROM livros WHERE disponibilidade = true", nativeQuery = true)
+    List<Livro> buscarLivrosDisponiveis();
 
     @Query("SELECT l FROM Livro l ORDER BY l.autor")
     List<Livro> livrosPorAutor();
